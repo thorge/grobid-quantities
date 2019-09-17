@@ -11,6 +11,7 @@ import io.dropwizard.setup.Environment;
 import org.grobid.service.QuantitiesServiceModule;
 import org.grobid.service.command.UnitBatchProcessingCommand;
 import org.grobid.service.command.TrainingGenerationCommand;
+import org.grobid.service.command.UnitsLookupBatchProcessingCommand;
 import org.grobid.service.configuration.GrobidQuantitiesConfiguration;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -42,6 +43,7 @@ public class GrobidQuantitiesApplication extends Application<GrobidQuantitiesCon
         bootstrap.addBundle(new AssetsBundle("/web", "/", "index.html", "assets"));
         bootstrap.addCommand(new TrainingGenerationCommand());
         bootstrap.addCommand(new UnitBatchProcessingCommand());
+        bootstrap.addCommand(new UnitsLookupBatchProcessingCommand());
     }
 
     @Override

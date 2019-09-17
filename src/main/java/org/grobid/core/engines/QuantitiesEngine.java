@@ -19,6 +19,7 @@ import org.grobid.core.engines.label.SegmentationLabels;
 import org.grobid.core.engines.label.TaggingLabels;
 import org.grobid.core.layout.LayoutToken;
 import org.grobid.core.layout.LayoutTokenization;
+import org.grobid.core.lexicon.QuantityLexicon;
 import org.grobid.core.tokenization.LabeledTokensContainer;
 import org.grobid.core.tokenization.TaggingTokenCluster;
 import org.grobid.core.tokenization.TaggingTokenClusteror;
@@ -26,18 +27,22 @@ import org.grobid.core.utilities.GrobidProperties;
 import org.grobid.core.utilities.IOUtilities;
 import org.grobid.core.utilities.UnitUtilities;
 import org.grobid.service.exceptions.GrobidServiceException;
+import org.grobid.trainer.UnitLabeled;
+import org.grobid.trainer.sax.UnitAnnotationSaxHandler;
+import org.xml.sax.InputSource;
+import org.xml.sax.SAXException;
 
 import javax.inject.Inject;
 import javax.inject.Singleton;
 import javax.ws.rs.core.Response;
+import javax.xml.parsers.ParserConfigurationException;
+import javax.xml.parsers.SAXParser;
+import javax.xml.parsers.SAXParserFactory;
 import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.NoSuchElementException;
-import java.util.SortedSet;
+import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -92,13 +97,13 @@ public class QuantitiesEngine {
                 throw new GrobidServiceException("Input file is empty or null", Response.Status.BAD_REQUEST);
             }
             GrobidAnalysisConfig config =
-                    new GrobidAnalysisConfig.GrobidAnalysisConfigBuilder()
-                            .analyzer(GrobidAnalyzer.getInstance())
-                            .consolidateHeader(0)
-                            .consolidateCitations(0)
-                            .build();
+                new GrobidAnalysisConfig.GrobidAnalysisConfigBuilder()
+                    .analyzer(GrobidAnalyzer.getInstance())
+                    .consolidateHeader(0)
+                    .consolidateCitations(0)
+                    .build();
             DocumentSource documentSource =
-                    DocumentSource.fromPdf(originFile);
+                DocumentSource.fromPdf(originFile);
 
             doc = parsers.getSegmentationParser().processing(documentSource, config);
 
@@ -158,18 +163,18 @@ public class QuantitiesEngine {
                     }
 
                     TaggingTokenClusteror clusteror = new TaggingTokenClusteror(GrobidModels.FULLTEXT, fulltextTaggedRawResult,
-                            layoutTokenization.getTokenization(), true);
+                        layoutTokenization.getTokenization(), true);
 
                     //Iterate and exclude figures and tables
                     for (TaggingTokenCluster cluster : Iterables.filter(clusteror.cluster(),
-                            new TaggingTokenClusteror
-                                    .LabelTypeExcludePredicate(TaggingLabels.TABLE_MARKER, TaggingLabels.EQUATION, TaggingLabels.CITATION_MARKER,
-                                    TaggingLabels.FIGURE_MARKER, TaggingLabels.EQUATION_MARKER, TaggingLabels.EQUATION_LABEL))) {
+                        new TaggingTokenClusteror
+                            .LabelTypeExcludePredicate(TaggingLabels.TABLE_MARKER, TaggingLabels.EQUATION, TaggingLabels.CITATION_MARKER,
+                            TaggingLabels.FIGURE_MARKER, TaggingLabels.EQUATION_MARKER, TaggingLabels.EQUATION_LABEL))) {
 
                         if (cluster.getTaggingLabel().equals(TaggingLabels.FIGURE)) {
                             //apply the figure model to only get the caption
                             final Figure processedFigure = parsers.getFigureParser()
-                                    .processing(cluster.concatTokens(), cluster.getFeatureBlock());
+                                .processing(cluster.concatTokens(), cluster.getFeatureBlock());
                             measurements.addAll(quantityParser.process(processedFigure.getCaptionLayoutTokens()));
                         } else if (cluster.getTaggingLabel().equals(TaggingLabels.TABLE)) {
                             //apply the table model to only get the caption/description
@@ -180,9 +185,9 @@ public class QuantitiesEngine {
 
                             // extract all the layout tokens from the cluster as a list
                             List<LayoutToken> tokens = labeledTokensContainers.stream()
-                                    .map(LabeledTokensContainer::getLayoutTokens)
-                                    .flatMap(List::stream)
-                                    .collect(Collectors.toList());
+                                .map(LabeledTokensContainer::getLayoutTokens)
+                                .flatMap(List::stream)
+                                .collect(Collectors.toList());
 
                             measurements.addAll(quantityParser.process(tokens));
                         }
@@ -222,7 +227,7 @@ public class QuantitiesEngine {
                                                   Document doc) {
         // List<LayoutToken> for the selected segment
         List<LayoutToken> layoutTokens
-                = doc.getTokenizationParts(documentParts, doc.getTokenizations());
+            = doc.getTokenizationParts(documentParts, doc.getTokenizations());
         return quantityParser.process(layoutTokens);
     }
 
@@ -264,7 +269,7 @@ public class QuantitiesEngine {
         UnitUtilities.Measurement_Type theType = null;
         String atomicValue = null;
         if (((fromValue == null) || (fromValue.length() == 0)) &&
-                ((toValue == null) || (toValue.length() == 0))) {
+            ((toValue == null) || (toValue.length() == 0))) {
             throw new GrobidServiceException("The input JSON is empty or null.", Response.Status.NO_CONTENT);
         } else if ((fromValue == null) || (fromValue.length() == 0)) {
             atomicValue = toValue;
@@ -339,7 +344,7 @@ public class QuantitiesEngine {
     }
 
     /**
-     * Processes a file with units
+     * Processes a file with units one per line
      */
     public void unitBatchProcess(String inputDirectory, String outputDirectory, boolean isRecursive) {
         Path inputPath = Paths.get(inputDirectory);
@@ -375,7 +380,7 @@ public class QuantitiesEngine {
                 try (Stream<String> stream = Files.lines(Paths.get(inputFile.getAbsolutePath()))) {
 
                     List<String> processedUnits = stream.map(
-                            s -> unitParser.tagUnit(s).stream().map(UnitBlock::getRawTaggedValue).collect(Collectors.joining())
+                        s -> unitParser.tagUnit(s).stream().map(UnitBlock::getRawTaggedValue).collect(Collectors.joining())
                     ).collect(Collectors.toList());
 
                     for (String processedUnit : processedUnits) {
@@ -391,6 +396,94 @@ public class QuantitiesEngine {
 
 
                 outputWriter.write("</units>\n");
+            } catch (IOException e) {
+                e.printStackTrace();
+            } finally {
+                IOUtils.closeQuietly(outputWriter);
+            }
+        }
+    }
+
+    /**
+     * Processes a file formatted as:
+     * - txt with raw units, one per line, or
+     * - xml with structured units (see the training data format)
+     * <p>
+     * and perform lookup using the local lexicon.
+     * <p>
+     * It writes the output as a CSV
+     **/
+    public void unitsLookupBatchProcess(String inputDirectory, String outputDirectory, boolean isRecursive) {
+        Path inputPath = Paths.get(inputDirectory);
+        File[] refFiles = inputPath.toFile()
+            .listFiles((dir, name) -> name.toLowerCase().endsWith(".txt") || name.toLowerCase().endsWith(".xml"));
+
+        if (refFiles == null) {
+            return;
+        }
+
+        LOGGER.info(refFiles.length + " files");
+        SAXParserFactory spf = SAXParserFactory.newInstance();
+
+        for (File inputFile : refFiles) {
+            Writer outputWriter = null;
+            try {
+                // the file for writing the training data
+                OutputStream os2 = null;
+
+                if (outputDirectory != null) {
+                    os2 = new FileOutputStream(outputDirectory + File.separator + inputFile.getName() + ".xml");
+                    outputWriter = new OutputStreamWriter(os2, UTF_8);
+                } else {
+                    return;
+                }
+
+
+//                outputWriter.write("");
+//                outputWriter.write("<units>\n");
+
+                try (Stream<String> stream = Files.lines(Paths.get(inputFile.getAbsolutePath()))) {
+
+                    stream.filter(s -> !s.startsWith("<?xml") && !s.startsWith("<units>")).forEach(s -> {
+                        StringBuilder resultString = new StringBuilder();
+                        List<LayoutToken> tokenisation = new ArrayList<>();
+
+                        SAXParser p = null;
+                        try {
+                            UnitAnnotationSaxHandler handler = new UnitAnnotationSaxHandler();
+                            p = spf.newSAXParser();
+                            p.parse(new InputSource(new StringReader(s)), handler);
+
+                            List<UnitLabeled> labeledResult = handler.getLabeledResult();
+                            Optional<UnitLabeled> first = labeledResult.stream().findFirst();
+
+                            first.ifPresent(unitLabeled -> unitLabeled.getLabels()
+                                .stream()
+                                .forEach(l -> {
+                                    resultString.append(l.getA() + "\t" + l.getB() + "\n");
+                                    tokenisation.add(new LayoutToken(l.getA()));
+                                }));
+                        } catch (ParserConfigurationException | SAXException | IOException e) {
+                            LOGGER.warn("Not well formed string: " + s);
+                        }
+
+                        List<UnitBlock> unitBlocks = unitParser.resultExtraction(resultString.toString(), tokenisation);
+
+                        String products = UnitBlock.asString(unitBlocks);
+                        UnitDefinition unitByNotation = QuantityLexicon.getInstance().getUnitbyName(products);
+                        if (unitByNotation != null) {
+                            System.out.println(s + ", " + products + ", " + unitByNotation.getType());
+                        } else {
+                            System.out.println(s + ", " + products + ", " + "unknown");
+                        }
+
+
+                    });
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+
+//                outputWriter.write("</units>\n");
             } catch (IOException e) {
                 e.printStackTrace();
             } finally {

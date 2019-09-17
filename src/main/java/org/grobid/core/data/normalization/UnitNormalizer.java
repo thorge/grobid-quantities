@@ -55,6 +55,7 @@ public class UnitNormalizer {
         parsedUnit.setProductBlocks(blocks);
         final List<UnitBlock> decomposedBlocks = decomposeBlocks(blocks);
         final String reformatted = UnitBlock.asString(decomposedBlocks);
+        System.out.println(reformatted);
         parsedUnit.setRawName(reformatted);
         parsedUnit.setUnitRightAttachment(rawUnit.hasUnitRightAttachment());
 

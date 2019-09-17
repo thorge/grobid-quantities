@@ -1,7 +1,10 @@
 package org.grobid.core.data;
 
+import org.apache.commons.lang3.StringUtils;
+
 import java.util.List;
 
+import static org.apache.commons.lang3.StringUtils.isNotBlank;
 import static org.apache.commons.lang3.StringUtils.isNotEmpty;
 
 /**
@@ -12,10 +15,11 @@ public class UnitBlock {
     private String base = "";
     private String pow = "";
 
-    /** this value represent the raw tagging of the whole sequence, not only of this unit block
+    /**
+     * this value represent the raw tagging of the whole sequence, not only of this unit block
      * Yes it's a workaround but there is no other way to carry this information further without creating a new object
      * in replacement of the List<UnitBlock>
-     * **/
+     **/
     private String rawTaggedValue;
 
 
@@ -68,7 +72,7 @@ public class UnitBlock {
         StringBuilder sb = new StringBuilder();
         sb.append(getPrefix());
         sb.append(getBase());
-        if (!getPow().equals("")) {
+        if (isNotBlank(getPow()) && !getPow().equals("1") && !StringUtils.equals(getPow(), "/")) {
             sb.append("^");
             sb.append(getPow());
         }
@@ -79,13 +83,13 @@ public class UnitBlock {
     public String toXml() {
         StringBuilder sb = new StringBuilder();
 
-        if(isNotEmpty(getPrefix())) {
+        if (isNotEmpty(getPrefix())) {
             sb.append("<prefix>" + getPrefix() + "</prefix>");
         }
-        if(isNotEmpty(getBase())) {
+        if (isNotEmpty(getBase())) {
             sb.append("<base>" + getBase() + "</base>");
         }
-        if(isNotEmpty(getPow())) {
+        if (isNotEmpty(getPow())) {
             sb.append("<pow>" + getPow() + "</pow>");
         }
 

@@ -203,14 +203,13 @@ public class UnitParserIntegrationTest {
 
     @Test
     public void testTagUnit12() throws Exception {
-
-        String input = "m*s^-1";
+        String input = "m s^-1";
         List<UnitBlock> output = target.tagUnit(input, false);
         System.out.println(input + " -> " + output);
 
         assertThat(output.size(), is(2));
-        assertThat(output.get(0).getBase(), is("m"));
         assertThat(output.get(0).getPrefix(), is(""));
+        assertThat(output.get(0).getBase(), is("m"));
         assertThat(output.get(0).getPow(), is(""));
         assertThat(output.get(1).getBase(), is("s"));
         assertThat(output.get(1).getPrefix(), is(""));
@@ -237,11 +236,11 @@ public class UnitParserIntegrationTest {
     @Test
     public void resultExtraction_kgmm2_liters() throws Exception {
         String result = "k\t0\t0\t1\t1\tNOPUNCT\t0\tI-<prefix>\n" +
-                "g\t0\t0\t0\t0\tNOPUNCT\t0\tI-<base>\n" +
-                "/\t0\t0\t1\t0\tNOPUNCT\t0\tI-<pow>\n" +
-                "m\t1\t0\t0\t0\tSLASH\t0\tI-<prefix>\n" +
-                "m\t0\t0\t1\t0\tNOPUNCT\t0\tI-<base>\n"+
-                "2\t0\t0\t1\t0\tNOPUNCT\t0\tI-<pow>";
+            "g\t0\t0\t0\t0\tNOPUNCT\t0\tI-<base>\n" +
+            "/\t0\t0\t1\t0\tNOPUNCT\t0\tI-<pow>\n" +
+            "m\t1\t0\t0\t0\tSLASH\t0\tI-<prefix>\n" +
+            "m\t0\t0\t1\t0\tNOPUNCT\t0\tI-<base>\n" +
+            "2\t0\t0\t1\t0\tNOPUNCT\t0\tI-<pow>";
 
         List<UnitBlock> blocks = target.resultExtraction(result, generateTokenisation("kg/mm2"));
         assertThat(blocks.size(), is(2));
@@ -255,10 +254,10 @@ public class UnitParserIntegrationTest {
     @Test
     public void resultExtraction_mol_divided_liters() throws Exception {
         String result = "m\t0\t0\t1\t1\tNOPUNCT\t0\tI-<base>\n" +
-                "o\t0\t0\t0\t0\tNOPUNCT\t0\t<base>\n" +
-                "l\t0\t0\t1\t0\tNOPUNCT\t0\t<base>\n" +
-                "/\t1\t0\t0\t0\tSLASH\t0\tI-<pow>\n" +
-                "l\t0\t0\t1\t0\tNOPUNCT\t0\tI-<base>";
+            "o\t0\t0\t0\t0\tNOPUNCT\t0\t<base>\n" +
+            "l\t0\t0\t1\t0\tNOPUNCT\t0\t<base>\n" +
+            "/\t1\t0\t0\t0\tSLASH\t0\tI-<pow>\n" +
+            "l\t0\t0\t1\t0\tNOPUNCT\t0\tI-<base>";
 
         List<UnitBlock> blocks = target.resultExtraction(result, generateTokenisation("mol/l"));
         assertThat(blocks.size(), is(2));
@@ -270,9 +269,9 @@ public class UnitParserIntegrationTest {
     @Test
     public void resultExtraction_C_divided_hours() throws Exception {
         String result = "°\t0\t0\t1\t1\tNOPUNCT\t0\tI-<base>\n" +
-                "C\t0\t0\t0\t0\tNOPUNCT\t0\t<base>\n" +
-                "/\t0\t0\t1\t0\tNOPUNCT\t0\tI-<pow>\n" +
-                "h\t1\t0\t0\t0\tSLASH\t0\tI-<base>";
+            "C\t0\t0\t0\t0\tNOPUNCT\t0\t<base>\n" +
+            "/\t0\t0\t1\t0\tNOPUNCT\t0\tI-<pow>\n" +
+            "h\t1\t0\t0\t0\tSLASH\t0\tI-<base>";
 
         List<UnitBlock> blocks = target.resultExtraction(result, generateTokenisation("°C /h"));
         assertThat(blocks.size(), is(2));
@@ -282,6 +281,24 @@ public class UnitParserIntegrationTest {
         assertThat(blocks.get(0).getRawTaggedValue(), is("<base>°C</base> <pow>/</pow><base>h</base>"));
         assertThat(blocks.get(1).getRawTaggedValue(), is("<base>°C</base> <pow>/</pow><base>h</base>"));
     }
+
+    @Test
+    public void resultExtraction_C_divided_hours2() throws Exception {
+        String result = "°\t0\t0\t1\t1\tNOPUNCT\t0\tI-<base>\n" +
+            "C\t0\t0\t0\t0\tNOPUNCT\t0\t<base>\n" +
+            "/\t0\t0\t1\t0\tNOPUNCT\t0\tI-<pow>\n" +
+            "h\t1\t0\t0\t0\tSLASH\t0\tI-<base>\n" +
+            "2\t1\t0\t0\t0\tNOPUNCT\t0\tI-<pow>";
+
+        List<UnitBlock> blocks = target.resultExtraction(result, generateTokenisation("°C /h2"));
+        assertThat(blocks.size(), is(2));
+        assertThat(blocks.get(0).getBase(), is("°C"));
+        assertThat(blocks.get(1).getBase(), is("h"));
+        assertThat(blocks.get(1).getPow(), is("-2"));
+        assertThat(blocks.get(0).getRawTaggedValue(), is("<base>°C</base> <pow>/</pow><base>h</base><pow>2</pow>"));
+        assertThat(blocks.get(1).getRawTaggedValue(), is("<base>°C</base> <pow>/</pow><base>h</base><pow>2</pow>"));
+    }
+
 
     public static List<LayoutToken> generateTokenisation(String input) {
         List<LayoutToken> tokenisation = new ArrayList<>();
@@ -297,9 +314,9 @@ public class UnitParserIntegrationTest {
     @Test
     public void resultExtraction_speed() throws Exception {
         String result = "k\t0\t0\t1\t1\tNOPUNCT\t0\tI-<prefix>\n" +
-                "m\t0\t0\t1\t1\tNOPUNCT\t0\tI-<base>\n" +
-                "/\t1\t0\t0\t0\tSLASH\t0\tI-<pow>\n" +
-                "s\t0\t0\t1\t0\tNOPUNCT\t0\tI-<base>";
+            "m\t0\t0\t1\t1\tNOPUNCT\t0\tI-<base>\n" +
+            "/\t1\t0\t0\t0\tSLASH\t0\tI-<pow>\n" +
+            "s\t0\t0\t1\t0\tNOPUNCT\t0\tI-<base>";
 
         List<UnitBlock> blocks = target.resultExtraction(result, generateTokenisation("km / s"));
         assertThat(blocks.size(), is(2));
@@ -315,10 +332,10 @@ public class UnitParserIntegrationTest {
     @Test
     public void resultExtraction_wrong() throws Exception {
         String result = "a\t0\t0\t1\t1\tNOPUNCT\t0\tI-<base>\n" +
-                "u\t0\t0\t0\t0\tNOPUNCT\t0\t<base>\n" +
-                "/\t1\t0\t0\t0\tSLASH\t0\tI-<pow>\n" +
-                "d\t0\t0\t1\t1\tNOPUNCT\t0\tI-<base>\n" +
-                "2\t1\t1\t0\t0\tNOPUNCT\t0\tI-<pow>";
+            "u\t0\t0\t0\t0\tNOPUNCT\t0\t<base>\n" +
+            "/\t1\t0\t0\t0\tSLASH\t0\tI-<pow>\n" +
+            "d\t0\t0\t1\t1\tNOPUNCT\t0\tI-<base>\n" +
+            "2\t1\t1\t0\t0\tNOPUNCT\t0\tI-<pow>";
 
         List<UnitBlock> blocks = target.resultExtraction(result, generateTokenisation("au/d 2"));
         assertThat(blocks.size(), is(2));
@@ -334,17 +351,17 @@ public class UnitParserIntegrationTest {
     @Test
     public void resultExtraction_wrong2() throws Exception {
         String result = "g\t0\t0\t1\t0\tNOPUNCT\t0\tI-<base>\n" +
-                "·\t1\t0\t0\t0\tDOT\t0\t<other>\n" +
-                "k\t0\t0\t1\t1\tNOPUNCT\t0\tI-<prefix>\n" +
-                "g\t0\t0\t1\t0\tNOPUNCT\t0\tI-<base>\n" +
-                "−\t1\t0\t0\t0\tHYPHEN\t0\tI-<pow>\n" +
-                "1\t1\t1\t0\t0\tNOPUNCT\t0\t<pow>\n" +
-                "·\t1\t0\t0\t0\tDOT\t0\t<other>\n" +
-                "d\t0\t0\t1\t1\tNOPUNCT\t0\tI-<base>\n" +
-                "a\t0\t0\t1\t1\tNOPUNCT\t0\t<base>\n" +
-                "y\t0\t0\t1\t1\tNOPUNCT\t0\t<base>\n" +
-                "−\t1\t0\t0\t0\tHYPHEN\t0\tI-<pow>\n" +
-                "1\t1\t1\t0\t0\tNOPUNCT\t0\t<pow>";
+            "·\t1\t0\t0\t0\tDOT\t0\t<other>\n" +
+            "k\t0\t0\t1\t1\tNOPUNCT\t0\tI-<prefix>\n" +
+            "g\t0\t0\t1\t0\tNOPUNCT\t0\tI-<base>\n" +
+            "−\t1\t0\t0\t0\tHYPHEN\t0\tI-<pow>\n" +
+            "1\t1\t1\t0\t0\tNOPUNCT\t0\t<pow>\n" +
+            "·\t1\t0\t0\t0\tDOT\t0\t<other>\n" +
+            "d\t0\t0\t1\t1\tNOPUNCT\t0\tI-<base>\n" +
+            "a\t0\t0\t1\t1\tNOPUNCT\t0\t<base>\n" +
+            "y\t0\t0\t1\t1\tNOPUNCT\t0\t<base>\n" +
+            "−\t1\t0\t0\t0\tHYPHEN\t0\tI-<pow>\n" +
+            "1\t1\t1\t0\t0\tNOPUNCT\t0\t<pow>";
 
         List<UnitBlock> blocks = target.resultExtraction(result, generateTokenisation("g · kg −1 · day −1"));
         assertThat(blocks.size(), is(3));
@@ -360,6 +377,21 @@ public class UnitParserIntegrationTest {
         assertThat(blocks.get(2).getRawTaggedValue(), is("<base>g</base> · <prefix>k</prefix><base>g</base> <pow>−1</pow> · <base>day</base> <pow>−1</pow>"));
     }
 
+
+    @Test
+    public void test() throws Exception {
+        String results = "k\tI-<prefix>\n" +
+            "V\tI-<base>\n" +
+            "∕\tI-<pow>\n" +
+            "c\tI-<prefix>\n" +
+            "m\tI-<base>\n";
+
+        List<LayoutToken> tokenisation = generateTokenisation("kV/cm");
+
+        List<UnitBlock> unitBlocks = target.resultExtraction(results, tokenisation);
+
+        assertThat(UnitBlock.asString(unitBlocks), is("kV/cm"));
+    }
 
 
 }
