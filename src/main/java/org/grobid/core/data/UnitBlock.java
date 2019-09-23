@@ -69,12 +69,27 @@ public class UnitBlock {
     }
 
     public String toString() {
+        return toString(false);
+    }
+
+    public String toString(boolean denominator) {
         StringBuilder sb = new StringBuilder();
+        String denominatorSign = "";
         sb.append(getPrefix());
         sb.append(getBase());
-        if (isNotBlank(getPow()) && !getPow().equals("1") && !StringUtils.equals(getPow(), "/")) {
-            sb.append("^");
-            sb.append(getPow());
+        if (isNotBlank(getPow()) && !getPow().equals("1")) {
+            if (denominator) denominatorSign = "-";
+
+            if (StringUtils.equals(getPow(), "/")) {
+                // ignore it 
+            } else if (StringUtils.endsWith(getPow(), "/")) {
+                // if the pow contains a / I have to remove and create a denominator
+                sb.append("^");
+                sb.append(denominatorSign).append(getPow(), 0, getPow().length() - 1);
+            } else {
+                sb.append("^");
+                sb.append(denominatorSign).append(getPow());
+            }
         }
 
         return sb.toString();
@@ -99,13 +114,18 @@ public class UnitBlock {
     public static String asProduct(List<UnitBlock> unitBlockList) {
         StringBuilder sb = new StringBuilder();
         boolean first = true;
+        boolean denominator = false;
         for (UnitBlock ub : unitBlockList) {
             if (!first) {
                 sb.append("·");
             } else {
                 first = false;
             }
-            sb.append(ub.toString());
+            sb.append(ub.toString(denominator));
+
+            if (ub.getPow().contains("/")) {
+                denominator = true;
+            }
         }
 
         return sb.toString();
@@ -117,6 +137,23 @@ public class UnitBlock {
         boolean firstNumerator = true;
         boolean firstDenominator = true;
         boolean fraction = false;
+
+        boolean first = true;
+        for (UnitBlock ub : unitBlockList) {
+
+            if (ub.getPow().contains("/")) {
+                fraction = true;
+                ub.setPow(ub.getPow().replace("/", ""));
+            }
+
+            if (!first && fraction) {
+                ub.setPow("-" + ub.getPow());
+            }
+
+            if (first) first = false;
+        }
+
+        fraction = false;
         for (UnitBlock ub : unitBlockList) {
             if (!ub.getPow().equals("0")) {
                 if (ub.getPow().contains("-")) {

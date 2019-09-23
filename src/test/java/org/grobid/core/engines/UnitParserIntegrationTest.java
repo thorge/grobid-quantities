@@ -211,8 +211,8 @@ public class UnitParserIntegrationTest {
         assertThat(output.get(0).getPrefix(), is(""));
         assertThat(output.get(0).getBase(), is("m"));
         assertThat(output.get(0).getPow(), is(""));
-        assertThat(output.get(1).getBase(), is("s"));
-        assertThat(output.get(1).getPrefix(), is(""));
+        assertThat(output.get(1).getBase(), is(""));
+        assertThat(output.get(1).getPrefix(), is("s"));
         assertThat(output.get(1).getPow(), is("-1"));
     }
 
@@ -224,12 +224,12 @@ public class UnitParserIntegrationTest {
         System.out.println(input + " -> " + output);
 
         assertThat(output.size(), is(2));
-        assertThat(output.get(0).getPrefix(), is("f"));
-        assertThat(output.get(0).getBase(), is("m"));
+        assertThat(output.get(0).getPrefix(), is(""));
+        assertThat(output.get(0).getBase(), is("mol"));
         assertThat(output.get(0).getPow(), is(""));
-        assertThat(output.get(1).getPrefix(), is(""));
-        assertThat(output.get(1).getBase(), is("g"));
-        assertThat(output.get(1).getPow(), is("-2"));
+        assertThat(output.get(1).getPrefix(), is("d"));
+        assertThat(output.get(1).getBase(), is("m"));
+        assertThat(output.get(1).getPow(), is("-3"));
     }
 
 
@@ -377,12 +377,11 @@ public class UnitParserIntegrationTest {
         assertThat(blocks.get(2).getRawTaggedValue(), is("<base>g</base> · <prefix>k</prefix><base>g</base> <pow>−1</pow> · <base>day</base> <pow>−1</pow>"));
     }
 
-
     @Test
-    public void test() throws Exception {
+    public void testResultExtraction_withReconstruction() throws Exception {
         String results = "k\tI-<prefix>\n" +
             "V\tI-<base>\n" +
-            "∕\tI-<pow>\n" +
+            "/\tI-<pow>\n" +
             "c\tI-<prefix>\n" +
             "m\tI-<base>\n";
 
@@ -392,6 +391,24 @@ public class UnitParserIntegrationTest {
 
         assertThat(UnitBlock.asString(unitBlocks), is("kV/cm"));
     }
+
+    @Test
+    public void testResultExtraction2_withReconstruction() throws Exception {
+        String results = "k\tI-<prefix>\n" +
+            "V\tI-<base>\n" +
+            "2\tI-<pow>\n" +
+            "/\t<pow>\n" +
+            "c\tI-<prefix>\n" +
+            "m\tI-<base>\n";
+
+        List<LayoutToken> tokenisation = generateTokenisation("kV2/cm");
+
+        List<UnitBlock> unitBlocks = target.resultExtraction(results, tokenisation);
+
+        assertThat(UnitBlock.asString(unitBlocks), is("kV^2/cm"));
+        assertThat(UnitBlock.asProduct(unitBlocks), is("kV^2·cm^-1"));
+    }
+
 
 
 }
