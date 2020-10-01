@@ -1,9 +1,7 @@
 package org.grobid.core.engines;
 
 import org.grobid.core.GrobidModel;
-import org.grobid.core.GrobidModels;
 import org.grobid.core.analyzers.QuantityAnalyzer;
-import org.grobid.core.data.Quantity;
 import org.grobid.core.data.Value;
 import org.grobid.core.data.ValueBlock;
 import org.grobid.core.data.normalization.NormalizationException;
@@ -25,7 +23,6 @@ import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.text.NumberFormat;
 import java.text.ParseException;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
@@ -71,7 +68,9 @@ public class ValueParser extends AbstractParser {
         BigDecimal numeric = parseValueBlock(block, locale);
         final Value resultValue = new Value();
         resultValue.setRawValue(rawValue);
-        resultValue.setNumeric(numeric);
+        if (numeric != null) {
+            resultValue.setNumeric(numeric);
+        }
         resultValue.setStructure(block);
 
         return resultValue;
