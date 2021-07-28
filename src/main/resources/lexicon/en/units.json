@@ -493,7 +493,8 @@
           "lemma": "year",
           "inflections": [
             "years",
-            "yr"
+            "yr",
+            "a"
           ]
         }
       ]
@@ -530,8 +531,7 @@
           "lemma": "millenium",
           "inflections": [
             "millenium",
-            "kiloannum",
-            "kyr"
+            "kiloannum"
           ]
         }
       ]
@@ -2305,40 +2305,6 @@
           ]
         },
         {
-          "raw": "kg/(m^2*yr)",
-          "product": [
-            {
-              "prefix": "k",
-              "base": "g"
-            },
-            {
-              "base": "m",
-              "pow": "-2"
-            },
-            {
-              "base": "yr",
-              "pow": "-1"
-            }
-          ]
-        },
-        {
-          "raw": "kg/(m2*yr)",
-          "product": [
-            {
-              "prefix": "k",
-              "base": "g"
-            },
-            {
-              "base": "m",
-              "pow": "-2"
-            },
-            {
-              "base": "yr",
-              "pow": "-1"
-            }
-          ]
-        },
-        {
           "raw": "kg/m2/yr",
           "product": [
             {
@@ -2351,6 +2317,23 @@
             },
             {
               "base": "yr",
+              "pow": "-1"
+            }
+          ]
+        },
+        {
+          "raw": "kg m-2 a-1",
+          "product": [
+            {
+              "prefix": "k",
+              "base": "g"
+            },
+            {
+              "base": "m",
+              "pow": "-2"
+            },
+            {
+              "base": "a",
               "pow": "-1"
             }
           ]
@@ -2396,6 +2379,20 @@
               "base": "m"
             },
             {
+              "base": "yr",
+              "pow": "-1"
+            }
+          ]
+        },
+        {
+          "raw": "cm kyr^-1",
+          "product": [
+            {
+              "prefix": "c",
+              "base": "m"
+            },
+            {
+              "prefix": "k",
               "base": "yr",
               "pow": "-1"
             }
