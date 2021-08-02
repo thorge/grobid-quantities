@@ -12,4 +12,8 @@
     <unit><prefix>c</prefix><base>m</base><pow>/</pow><base>yr</base></unit>
     <unit><base>m</base><pow>/</pow><base>yr</base></unit>
     <unit><base>m</base><pow>/</pow><base>yr</base></unit>
+    <unit><prefix>c</prefix><base>m</base><pow>/</pow><prefix>k</prefix><base>yr</base></unit>
+    <unit><prefix>c</prefix><base>m</base><pow>/</pow><prefix>k</prefix><base>yr</base></unit>
+    <unit><base>m</base><pow>/</pow><prefix>k</prefix><base>yr</base></unit>
+    <unit><base>m</base><pow>/</pow><prefix>k</prefix><base>yr</base></unit>
 </units>

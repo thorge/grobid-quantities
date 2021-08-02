@@ -2412,6 +2412,20 @@
           ]
         },
         {
+          "raw": "cm/kyr",
+          "product": [
+            {
+              "prefix": "c",
+              "base": "m"
+            },
+            {
+              "prefix": "k",
+              "base": "yr",
+              "pow": "-1"
+            }
+          ]
+        },
+        {
           "raw": "m/s",
           "product": [
             {
