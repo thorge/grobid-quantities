@@ -63,7 +63,7 @@
         <number>0.4</number>
     </value>
     <value>
-        <number>9</number> <base>10</base><pow>-9</pow>
+        <number>9</number> × <base>10</base><pow>-9</pow>
     </value>
     <value>
         <number>0.28</number>
@@ -79,5 +79,86 @@
     </value>
     <value>
         <number>10</number>
+    </value>
+    <value>
+        <number>5.61</number>
+    </value>
+    <value>
+        <number>7.04</number>
+    </value>
+    <value>
+        <number>23</number>
+    </value>
+    <value>
+        <number>107</number>
+    </value>
+    <value>
+        <number>17</number>
+    </value>
+    <value>
+        <number>89</number>
+    </value>
+    <value>
+        <number>57.5</number>
+    </value>
+    <value>
+        <number>43.9</number>
+    </value>
+    <value>
+        <number>27</number>
+    </value>
+    <value>
+        <number>57</number>
+    </value>
+    <value>
+        <number>42.7</number>
+    </value>
+    <value>
+        <number>42.7</number>
+    </value>
+    <value>
+        <number>57.5</number>
+    </value>
+    <value>
+        <number>20</number>
+    </value>
+    <value>
+        <number>100</number>
+    </value>
+    <value>
+        <number>0.7</number>
+    </value>
+    <value>
+        <number>0.2</number>
+    </value>
+    <value>
+        <number>10</number>
+    </value>
+    <value>
+        <number>100</number>
+    </value>
+    <value>
+        <number>10</number>
+    </value>
+    <value>
+        <number>100</number>
+    </value>
+    <value>
+        <number>10</number>
+    </value>
+    <value>
+        <number>35</number>
+    </value>
+    <value>
+        <number>0.31</number>
+    </value>
+    <value>
+        <number>0.34</number>
+    </value>
+    <value>
+        <number>0.08</number>
+    </value>
+    <value>
+        <number>100</number>
     </value>
 </values>

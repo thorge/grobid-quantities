@@ -2288,6 +2288,41 @@
     {
       "notations": [
         {
+          "raw": "kg s^-1 m^-2",
+          "product": [
+            {
+              "prefix": "k",
+              "base": "g"
+            },
+            {
+              "base": "s",
+              "pow": "-1"
+            },
+            {
+              "base": "m",
+              "pow": "-2"
+            }
+          ]
+        },
+        {
+          "raw": "mg/cm2/year",
+          "product": [
+            {
+              "prefix": "m",
+              "base": "g"
+            },
+            {
+              "prefix": "c",
+              "base": "m",
+              "pow": "-2"
+            },
+            {
+              "base": "year",
+              "pow": "-1"
+            }
+          ]
+        },
+        {
           "raw": "kg m^-2 yr^-1",
           "product": [
             {
@@ -2333,6 +2368,25 @@
               "pow": "-2"
             },
             {
+              "base": "a",
+              "pow": "-1"
+            }
+          ]
+        },
+        {
+          "raw": "µmol/cm2/ka",
+          "product": [
+            {
+              "prefix": "µ",
+              "base": "mol"
+            },
+            {
+              "prefix": "c",
+              "base": "m",
+              "pow": "-2"
+            },
+            {
+              "prefix": "k",
               "base": "a",
               "pow": "-1"
             }
@@ -2447,6 +2501,19 @@
             {
               "prefix": "k",
               "base": "yr",
+              "pow": "-1"
+            }
+          ]
+        },
+        {
+          "raw": "mm a^-1",
+          "product": [
+            {
+              "prefix": "m",
+              "base": "m"
+            },
+            {
+              "base": "a",
               "pow": "-1"
             }
           ]
