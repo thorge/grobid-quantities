@@ -2399,6 +2399,32 @@
           ]
         },
         {
+          "raw": "m/kyr",
+          "product": [
+            {
+              "base": "m"
+            },
+            {
+              "prefix": "k",
+              "base": "yr",
+              "pow": "-1"
+            }
+          ]
+        },
+        {
+          "raw": "cm s-1",
+          "product": [
+            {
+              "prefix": "c",
+              "base": "m"
+            },
+            {
+              "base": "s",
+              "pow": "-1"
+            }
+          ]
+        },
+        {
           "raw": "cm/yr",
           "product": [
             {
