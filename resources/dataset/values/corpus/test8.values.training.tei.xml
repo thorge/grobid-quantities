@@ -33,7 +33,25 @@
         <number>2</number>
     </value>
     <value>
+        <number>6.8</number>
+    </value>
+    <value>
+        <number>6.1</number>
+    </value>
+    <value>
+        <number>1.2</number>
+    </value>
+    <value>
+        <number>2.9</number>
+    </value>
+    <value>
         <number>65.9</number>
+    </value>
+    <value>
+        <number>1.2</number>
+    </value>
+    <value>
+        <number>2.9</number>
     </value>
     <value>
         <number>4.8</number>
@@ -103,5 +121,47 @@
     </value>
     <value>
         <number>10</number>
+    </value>
+    <value>
+        <number>20</number>
+    </value>
+    <value>
+        <number>2</number>
+    </value>
+    <value>
+        <number>300</number>
+    </value>
+    <value>
+        <number>41000</number>
+    </value>
+     <value>
+        <number>0.04</number>
+    </value>
+     <value>
+        <number>0.06</number>
+    </value>
+    <value>
+        <number>3</number>
+    </value>
+    <value>
+        <number>8</number>
+    </value>
+    <value>
+      <base>10</base><pow>-5</pow>
+    </value>
+    <value>
+      <base>10</base><pow>-4</pow>
+    </value>
+    <value>
+        <number>0.1</number>
+    </value>
+    <value>
+        <number>1</number>
+    </value>
+    <value>
+        <number>7</number>
+    </value>
+    <value>
+        <number>32</number>
     </value>
 </values>
