@@ -456,7 +456,8 @@
         {
           "lemma": "day",
           "inflections": [
-            "days"
+            "days",
+            "d"
           ]
         }
       ]
@@ -2369,6 +2370,39 @@
             },
             {
               "base": "a",
+              "pow": "-1"
+            }
+          ]
+        },
+        {
+          "raw": "mol/(s·m²)",
+          "product": [
+            {
+              "base": "mol"
+            },
+            {
+              "base": "s",
+              "pow": "-1"
+            },
+            {
+              "base": "m",
+              "pow": "-2"
+            }
+          ]
+        },
+        {
+          "raw": "mmol m^-2 d^-1",
+          "product": [
+            {
+              "prefix": "m",
+              "base": "mol"
+            },
+            {
+              "base": "m",
+              "pow": "-2"
+            },
+            {
+              "base": "d",
               "pow": "-1"
             }
           ]
