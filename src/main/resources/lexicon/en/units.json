@@ -1902,6 +1902,19 @@
               "pow": "-3"
             }
           ]
+        },
+        {
+          "raw": "kg/m³",
+          "product": [
+            {
+              "prefix": "k",
+              "base": "g"
+            },
+            {
+              "base": "m",
+              "pow": "-3"
+            }
+          ]
         }
       ],
       "type": "DENSITY",
@@ -2302,6 +2315,24 @@
             {
               "base": "m",
               "pow": "-2"
+            }
+          ]
+        },
+        {
+          "raw": "g cm-2 kyr-1",
+          "product": [
+            {
+              "base": "g"
+            },
+            {
+              "prefix": "c",
+              "base": "m",
+              "pow": "-2"
+            },
+            {
+              "prefix": "k",
+              "base": "yr",
+              "pow": "-1"
             }
           ]
         },
