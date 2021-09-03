@@ -1,6 +1,10 @@
+<?xml version="1.0" encoding="utf-8" ?>
 <units xmlns="http://www.tei-c.org/ns/1.0">
   <unit><prefix>m</prefix><base>m</base><pow>/</pow><base>yr</base></unit>
   <unit><prefix>m</prefix><base>m</base><pow>/</pow><base>yr</base></unit>
+  <unit><prefix>G</prefix><base>t</base><pow>/</pow><base>yr</base></unit>
+  <unit><prefix>G</prefix><base>t</base><pow>/</pow><base>yr</base></unit>
+  <unit><prefix>k</prefix><base>m</base></unit>
   <unit><prefix>m</prefix><base>m</base><pow>/</pow><base>yr</base></unit>
   <unit><prefix>m</prefix><base>m</base><pow>/</pow><base>yr</base></unit>
   <unit><prefix>m</prefix><base>m</base><pow>/</pow><base>yr</base></unit>
@@ -10,21 +14,30 @@
   <unit><base>g</base> <base>m</base><pow>-2</pow> <base>yr</base><pow>-1</pow></unit>
   <unit><base>g</base> <base>m</base><pow>-2</pow> <base>yr</base><pow>-1</pow></unit>
   <unit><base>g</base> <base>m</base><pow>-2</pow> <base>yr</base><pow>-1</pow></unit>
+  <unit><base><prefix>k</prefix><base>g</base> <prefix>k</prefix><base>g</base><pow>-1</pow></base></unit>
   <unit><prefix>k</prefix><base>g</base> <base>s</base><pow>-1</pow> <base>m</base><pow>-2</pow></unit>
-  <unit><prefix>m</prefix><base>m</base><pow>/</pow><base>yr</base></unit>
+  <unit><prefix>m</prefix><base>m</base> <base>a</base><pow>-1</pow></unit>
   <unit><base>g</base> C <base>m</base><pow>-2</pow> <base>d</base><pow>-1</pow></unit>
   <unit><base>g</base> C <base>m</base><pow>-2</pow> <base>d</base><pow>-1</pow></unit>
   <unit><prefix>c</prefix><base>m</base> <base>yr</base><pow>-1</pow></unit>
   <unit><prefix>c</prefix><base>m</base> <base>yr</base><pow>-1</pow></unit>
+  <unit><base>m</base></unit>
+  <unit><base>m</base></unit>
+  <unit><base>years</base></unit>
+  <unit><base>years</base></unit>
+  <unit><base>%</base></unit>
   <unit><prefix>m</prefix><base>m</base> <base>a</base><pow>-1</pow></unit>
   <unit><prefix>m</prefix><base>m</base> <base>a</base><pow>-1</pow></unit>
   <unit><prefix>c</prefix><base>m</base> <base>year</base><pow>-1</pow></unit>
   <unit><base>g</base> <base>m</base><pow>-2</pow> <base>yr</base><pow>-1</pow></unit>
   <unit><base>g</base> <base>m</base><pow>-2</pow> <base>yr</base><pow>-1</pow></unit>
   <unit><prefix>m</prefix><base>m</base><pow>/</pow><base>yr</base></unit>
+  <unit><base>%</base></unit>
   <unit><prefix>µ</prefix><base>mol</base><pow>/</pow><prefix>c</prefix><base>m</base><pow>2</pow><pow>/</pow><prefix>k</prefix><base>a</base></unit>
   <unit><prefix>µ</prefix><base>mol</base><pow>/</pow><prefix>c</prefix><base>m</base><pow>2</pow><pow>/</pow><prefix>k</prefix><base>a</base></unit>
+  <unit><base>years</base></unit>
   <unit><prefix>m</prefix><base>m</base><pow>/</pow><base>yr</base></unit>
+  <unit><base>years</base></unit>
   <unit><prefix>m</prefix><base>m</base><pow>/</pow><base>yr</base></unit>
   <unit><prefix>m</prefix><base>g</base>/<prefix>c</prefix><base>m</base><pow>2</pow><pow>/</pow><base>year</base></unit>
 </units>
