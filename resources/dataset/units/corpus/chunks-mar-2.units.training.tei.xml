@@ -24,8 +24,8 @@
   <unit><base>m</base></unit>
   <unit><prefix>c</prefix><base>m</base><pow>/</pow><prefix>k</prefix><base>yr</base></unit>
   <unit><base>%</base></unit>
-  <unit><base>mm yr^-1</base></unit>
-  <unit><base>mm yr^-1</base></unit>
+  <unit><prefix>m</prefix><base>m</base> <base>yr</base>^<pow>-1</pow></unit>
+  <unit><prefix>m</prefix><base>m</base> <base>yr</base>^<pow>-1</pow></unit>
   <unit><prefix>m</prefix><base>m</base> <base>yr</base><pow>-1</pow></unit>
   <unit><prefix>m</prefix><base>m</base> <base>yr</base><pow>-1</pow></unit>
   <unit><prefix>k</prefix><base>g</base> <base>s</base><pow>-1</pow> <base>m</base><pow>-2</pow></unit>
