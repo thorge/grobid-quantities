@@ -99,7 +99,8 @@ public class UnitUtilities {
         MAGNETIC_MOMENT("magnetic moment"),
         ATOM_MASS_UNIT("atom mass unit"),
         MASS_ACCUMULATION_RATE("mass accumulation rate"),
-        SEDIMENTATION_RATE("sedimentation rate");
+        SEDIMENTATION_RATE("sedimentation rate"),
+        PERCENT_MODERN_CARBON("percent modern carbon");
 
         private String name;
 

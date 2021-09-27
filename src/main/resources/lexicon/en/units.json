@@ -495,6 +495,7 @@
           "inflections": [
             "years",
             "yr",
+            "y",
             "a"
           ]
         }
@@ -2180,9 +2181,6 @@
       "names": [
         {
           "lemma": "molecules per squared metre per second"
-        },
-        {
-          "lemma": "molecules per squared meter per second"
         }
       ]
     },
@@ -2302,6 +2300,72 @@
     {
       "notations": [
         {
+          "raw": "kg m^-2 yr^-1",
+          "product": [
+            {
+              "prefix": "k",
+              "base": "g"
+            },
+            {
+              "base": "m",
+              "pow": "-2"
+            },
+            {
+              "base": "yr",
+              "pow": "-1"
+            }
+          ]
+        },
+        {
+          "raw": "kg/m2/yr",
+          "product": [
+            {
+              "prefix": "k",
+              "base": "g"
+            },
+            {
+              "base": "m",
+              "pow": "-2"
+            },
+            {
+              "base": "yr",
+              "pow": "-1"
+            }
+          ]
+        },
+        {
+          "raw": "kg m-2 a-1",
+          "product": [
+            {
+              "prefix": "k",
+              "base": "g"
+            },
+            {
+              "base": "m",
+              "pow": "-2"
+            },
+            {
+              "base": "a",
+              "pow": "-1"
+            }
+          ]
+        }
+      ],
+      "type": "MASS_ACCUMULATION_RATE",
+      "system": "SI_DERIVED",
+      "supportsPrefixes": true,
+      "names": [
+        {
+          "lemma": "kilogram per squaremetre per year",
+          "inflections": [
+            "kilograms per squaremetre per year"
+          ]
+        }
+      ]
+    }, 
+    {
+      "notations": [
+        {
           "raw": "kg s^-1 m^-2",
           "product": [
             {
@@ -2350,57 +2414,6 @@
             },
             {
               "base": "year",
-              "pow": "-1"
-            }
-          ]
-        },
-        {
-          "raw": "kg m^-2 yr^-1",
-          "product": [
-            {
-              "prefix": "k",
-              "base": "g"
-            },
-            {
-              "base": "m",
-              "pow": "-2"
-            },
-            {
-              "base": "yr",
-              "pow": "-1"
-            }
-          ]
-        },
-        {
-          "raw": "kg/m2/yr",
-          "product": [
-            {
-              "prefix": "k",
-              "base": "g"
-            },
-            {
-              "base": "m",
-              "pow": "-2"
-            },
-            {
-              "base": "yr",
-              "pow": "-1"
-            }
-          ]
-        },
-        {
-          "raw": "kg m-2 a-1",
-          "product": [
-            {
-              "prefix": "k",
-              "base": "g"
-            },
-            {
-              "base": "m",
-              "pow": "-2"
-            },
-            {
-              "base": "a",
               "pow": "-1"
             }
           ]
@@ -2488,6 +2501,47 @@
         }
       ]
     },
+    {
+      "notations": [
+        {
+          "raw": "Tg yr-1",
+          "product": [
+            {
+              "prefix": "T",
+              "base": "g"
+            },
+            {
+              "base": "yr",
+              "pow": "-1"
+            }
+          ]
+        },
+        {
+          "raw": "kg/s",
+          "product": [
+            {
+              "prefix": "k",
+              "base": "g"
+            },
+            {
+              "base": "s",
+              "pow": "-1"
+            }
+          ]
+        }
+      ],
+      "type": "MASS_ACCUMULATION_RATE",
+      "system": "SI_DERIVED",
+      "supportsPrefixes": false,
+      "names": [
+        {
+          "lemma": "teragram per year",
+          "inflections": [
+            "teragrams per year"
+          ]
+        }
+      ]
+    },        
     {
       "notations": [
         {
@@ -2603,6 +2657,20 @@
         {
           "lemma": "sedimentation rate",
           "inflection": "sedimentation rates"
+        }
+      ]
+    },
+    {
+      "notations": [
+        {
+          "raw": "pMC"
+        }
+      ],
+      "type": "PERCENT_MODERN_CARBON",
+      "system": "NON_SI",
+      "names": [
+        {
+          "lemma": "percent modern carbon"
         }
       ]
     }
