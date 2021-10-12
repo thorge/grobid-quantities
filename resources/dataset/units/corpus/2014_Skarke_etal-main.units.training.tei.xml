@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<units xmlns="http://www.tei-c.org/ns/1.0">
+  <unit><prefix>T</prefix><base>g</base> <base>yr</base><pow>-1</pow></base></unit>
+  <unit><prefix>T</prefix><base>g</base> <base>yr</base><pow>-1</pow></base></unit>
+  <unit><prefix>k</prefix><base>m</base><pow>2</pow></unit>
+  <unit><base>m</base></unit>
+  <unit><base>m</base></unit>
+  <unit><base>years</base></unit>
+  <unit><prefix>k</prefix><base>yr</base></unit>
+  <unit><prefix>c</prefix><base>m</base> <prefix>k</prefix><base>yr</base><pow>-1</pow></unit>
+  <unit><prefix>c</prefix><base>m</base> <prefix>k</prefix><base>yr</base><pow>-1</pow></unit>
+  <unit><base>ppm</base></unit>
+  <unit><base>m</base></unit>
+  <unit><base>m</base></unit>
+  <unit><prefix>n</prefix><base>M</base></unit>
+  <unit><base>m3</base></unit>
+  <unit><base>mbsl</base></unit>
+  <unit><base>mbsl</base></unit>
+  <unit><prefix>k</prefix><base>m</base></unit>
+  <unit><prefix>k</prefix><base>m</base></unit>
+  <unit><prefix>k</prefix><base>m</base></unit>
+  <unit><base>m</base></unit>
+  <unit><base>mbsl</base></unit>
+  <unit><base>mbsl</base></unit>
+  <unit><base>mbsl</base></unit>
+  <unit><base>mbsl</base></unit>
+  <unit><base>mbsl</base></unit>
+  <unit><base>mbsl</base></unit>
+  <unit><base>per cent</base></unit>
+  <unit><base>mbsl</base></unit>
+  <unit><base>mbsl</base></unit>
+  <unit><base>m</base></unit>
+  <unit><base>mbsl</base></unit>
+  <unit><base>mbsl</base></unit>
+  <unit><base>mbsl</base></unit>
+  <unit><base>m</base></unit>
+  <unit><base>m</base></unit>
+  <unit><base>m</base></unit>
+  <unit><base>m</base></unit>
+  <unit><prefix>k</prefix><base>m</base></unit>
+  <unit><base>mbsl</base></unit>
+  <unit><base>mbsl</base></unit>
+  <unit><base>°C</base></unit>
+  <unit><base>mbsl</base></unit>
+  <unit><base>mbsl</base></unit>
+  <unit><base>%</base></unit>
+  <unit><base>%</base></unit>
+  <unit><base>%</base></unit>
+  <unit><base>yr</base></unit>
+  <unit><prefix>G</prefix><base>t</base></unit>
+  <unit><prefix>k</prefix><base>m</base></unit>
+  <unit><prefix>k</prefix><base>m</base></unit>
+  <unit><prefix>M</prefix><base>Pa</base></unit>
+  <unit><prefix>M</prefix><base>Pa</base></unit>
+  <unit><base>◦C</base></unit>
+  <unit><base>◦C</base></unit>
+  <unit><base>mbsl</base></unit>
+  <unit><base>mbsl</base></unit>
+  <unit><base>mbsl</base></unit>
+  <unit><base>mbsl</base></unit>
+  <unit><base>%</base></unit>
+  <unit><prefix>M</prefix><base>g</base> <base>yr</base><pow>-1</pow></base></unit>
+  <unit><prefix>M</prefix><base>g</base> <base>yr</base><pow>-1</pow></base></unit>
+  <unit><base>mol</base> <base>yr</base><pow>-1</pow></base></unit>
+  <unit><base>mol</base> <base>yr</base><pow>-1</pow></base></unit>
+  <unit><base>mol</base> <base>yr</base><pow>-1</pow></base></unit>
+  <unit><base>mol</base> <base>yr</base><pow>-1</pow></base></unit>
+  <unit><base>%</base></unit>
+  <unit><prefix>M</prefix><base>g</base> <base>yr</base><pow>-1</pow></base></unit>
+  <unit><base>g</base> <base>mol</base><pow>-1</pow></base></unit>
+  <unit><base>mbsl</base></unit>
+  <unit><base>%</base></unit>
+  <unit><base>mbsl</base></unit>
+  <unit><base>K</base></unit>
+</units>
