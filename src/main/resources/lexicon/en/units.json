@@ -2362,7 +2362,7 @@
           ]
         }
       ]
-    }, 
+    },
     {
       "notations": [
         {
@@ -2381,7 +2381,22 @@
               "pow": "-2"
             }
           ]
-        },
+        }
+      ],
+      "type": "MASS_ACCUMULATION_RATE",
+      "system": "SI_DERIVED",
+      "supportsPrefixes": true,
+      "names": [
+        {
+          "lemma": "kilogram per square meter per second",
+          "inflections": [
+            "kilograms per square meter per second",
+           ]
+        }
+      ]
+    },
+    {
+      "notations": [
         {
           "raw": "g cm-2 kyr-1",
           "product": [
@@ -2399,7 +2414,22 @@
               "pow": "-1"
             }
           ]
-        },
+        }
+      ],
+      "type": "MASS_ACCUMULATION_RATE",
+      "system": "SI_DERIVED",
+      "supportsPrefixes": true,
+      "names": [
+        {
+          "lemma": "gram per square centimeter per kilo year",
+          "inflections": [
+            "grams per square centimeter per kilo year",
+           ]
+        }
+      ]
+    },
+    {
+      "notations": [
         {
           "raw": "mg/cm2/year",
           "product": [
@@ -2417,7 +2447,22 @@
               "pow": "-1"
             }
           ]
-        },
+        }
+      ],
+      "type": "MASS_ACCUMULATION_RATE",
+      "system": "SI_DERIVED",
+      "supportsPrefixes": true,
+      "names": [
+        {
+          "lemma": "milligram per square centimeter per year",
+          "inflections": [
+            "milligrams per square centimeter per year",
+           ]
+        }
+      ]
+    },
+    {
+      "notations": [
         {
           "raw": "mol/(s·m²)",
           "product": [
@@ -2433,43 +2478,22 @@
               "pow": "-2"
             }
           ]
-        },
+        }
+      ],
+      "type": "MASS_ACCUMULATION_RATE",
+      "system": "SI_DERIVED",
+      "supportsPrefixes": true,
+      "names": [
         {
-          "raw": "mmol m^-2 d^-1",
-          "product": [
-            {
-              "prefix": "m",
-              "base": "mol"
-            },
-            {
-              "base": "m",
-              "pow": "-2"
-            },
-            {
-              "base": "d",
-              "pow": "-1"
-            }
-          ]
-        },
-        {
-          "raw": "µmol/cm2/ka",
-          "product": [
-            {
-              "prefix": "µ",
-              "base": "mol"
-            },
-            {
-              "prefix": "c",
-              "base": "m",
-              "pow": "-2"
-            },
-            {
-              "prefix": "k",
-              "base": "a",
-              "pow": "-1"
-            }
-          ]
-        },
+          "lemma": "mole per square meter per second",
+          "inflections": [
+            "moles per square meter per second"
+           ]
+        }
+      ]
+    },
+    {
+      "notations": [
         {
           "raw": "kg/(s·m²)",
           "product": [
@@ -2493,10 +2517,9 @@
       "supportsPrefixes": true,
       "names": [
         {
-          "lemma": "mass accumulation rate",
+          "lemma": "kilogram per square meter per second",
           "inflections": [
-            "mass accumulation rates",
-            "MAR"
+            "kilograms per square meter per second"
            ]
         }
       ]
@@ -2504,27 +2527,18 @@
     {
       "notations": [
         {
-          "raw": "Tg yr-1",
+          "raw": "mmol m^-2 d^-1",
           "product": [
             {
-              "prefix": "T",
-              "base": "g"
+              "prefix": "m",
+              "base": "mol"
             },
             {
-              "base": "yr",
-              "pow": "-1"
-            }
-          ]
-        },
-        {
-          "raw": "kg/s",
-          "product": [
-            {
-              "prefix": "k",
-              "base": "g"
+              "base": "m",
+              "pow": "-2"
             },
             {
-              "base": "s",
+              "base": "d",
               "pow": "-1"
             }
           ]
@@ -2535,13 +2549,47 @@
       "supportsPrefixes": false,
       "names": [
         {
-          "lemma": "teragram per year",
+          "lemma": "millimole per square meter per day",
           "inflections": [
-            "teragrams per year"
+            "millimoles per square meter per day"
           ]
         }
       ]
-    },        
+    },
+    {
+      "notations": [
+        {
+          "raw": "µmol/cm2/ka",
+          "product": [
+            {
+              "prefix": "µ",
+              "base": "mol"
+            },
+            {
+              "prefix": "c",
+              "base": "m",
+              "pow": "-2"
+            },
+            {
+              "prefix": "k",
+              "base": "a",
+              "pow": "-1"
+            }
+          ]
+        }
+      ],
+      "type": "MASS_ACCUMULATION_RATE",
+      "system": "SI_DERIVED",
+      "supportsPrefixes": false,
+      "names": [
+        {
+          "lemma": "micromole per square centimeter per kiloanum",
+          "inflections": [
+            "micromoles per square centimeter per kiloanum"
+          ]
+        }
+      ]
+    },
     {
       "notations": [
         {
