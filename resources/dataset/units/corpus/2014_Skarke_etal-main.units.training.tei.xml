@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <units xmlns="http://www.tei-c.org/ns/1.0">
-  <unit><prefix>T</prefix><base>g</base> <base>yr</base><pow>-1</pow></base></unit>
-  <unit><prefix>T</prefix><base>g</base> <base>yr</base><pow>-1</pow></base></unit>
+  <unit><prefix>T</prefix><base>g</base> <base>yr</base><pow>-1</pow></unit>
+  <unit><prefix>T</prefix><base>g</base> <base>yr</base><pow>-1</pow></unit>
   <unit><prefix>k</prefix><base>m</base><pow>2</pow></unit>
   <unit><base>m</base></unit>
   <unit><base>m</base></unit>
@@ -59,15 +59,15 @@
   <unit><base>mbsl</base></unit>
   <unit><base>mbsl</base></unit>
   <unit><base>%</base></unit>
-  <unit><prefix>M</prefix><base>g</base> <base>yr</base><pow>-1</pow></base></unit>
-  <unit><prefix>M</prefix><base>g</base> <base>yr</base><pow>-1</pow></base></unit>
-  <unit><base>mol</base> <base>yr</base><pow>-1</pow></base></unit>
-  <unit><base>mol</base> <base>yr</base><pow>-1</pow></base></unit>
-  <unit><base>mol</base> <base>yr</base><pow>-1</pow></base></unit>
-  <unit><base>mol</base> <base>yr</base><pow>-1</pow></base></unit>
+  <unit><prefix>M</prefix><base>g</base> <base>yr</base><pow>-1</pow></unit>
+  <unit><prefix>M</prefix><base>g</base> <base>yr</base><pow>-1</pow></unit>
+  <unit><base>mol</base> <base>yr</base><pow>-1</pow></unit>
+  <unit><base>mol</base> <base>yr</base><pow>-1</pow></unit>
+  <unit><base>mol</base> <base>yr</base><pow>-1</pow></unit>
+  <unit><base>mol</base> <base>yr</base><pow>-1</pow></unit>
   <unit><base>%</base></unit>
-  <unit><prefix>M</prefix><base>g</base> <base>yr</base><pow>-1</pow></base></unit>
-  <unit><base>g</base> <base>mol</base><pow>-1</pow></base></unit>
+  <unit><prefix>M</prefix><base>g</base> <base>yr</base><pow>-1</pow></unit>
+  <unit><base>g</base> <base>mol</base><pow>-1</pow></unit>
   <unit><base>mbsl</base></unit>
   <unit><base>%</base></unit>
   <unit><base>mbsl</base></unit>
