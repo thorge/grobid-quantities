@@ -50,10 +50,10 @@
     background-color: #7e57c2;
 }
 .label.SEDIMENTATION_RATE {
-    background-color: #CD6399;
+    background-color: #ff9811;
 }
 .label.PERCENT_MODERN_CARBON {
-    background-color: #d38f88;
+    background-color: #3564ff;
 }
 
 .label.biology {
@@ -301,10 +301,10 @@ span {word-break:normal;}
     background-color: #7e57c2;
 }
 .info-sense-box.SEDIMENTATION_RATE {
-    background-color: #CD6399;
+    background-color: #ff9811;
 }
 .info-sense-box.PERCENT_MODERN_CARBON {
-    background-color: #d38f88;
+    background-color: #3564ff;
 }
 
 /* DOMAINS */
@@ -399,8 +399,8 @@ a.MASS_ACCUMULATION_RATE {
     border-color: #7e57c2;
 }
 a.SEDIMENTATION_RATE {
-    border-color: #CD6399;
+    border-color: #ff9811;;
 }
 a.PERCENT_MODERN_CARBON {
-    border-color: #d38f88;
+    border-color: #3564ff;
 }
