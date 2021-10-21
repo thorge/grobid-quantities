@@ -2559,6 +2559,37 @@
     {
       "notations": [
         {
+          "raw": "mol m^-2 yr^-1",
+          "product": [
+            {
+              "base": "mol"
+            },
+            {
+              "base": "m",
+              "pow": "-2"
+            },
+            {
+              "base": "yr",
+              "pow": "-1"
+            }
+          ]
+        }
+      ],
+      "type": "MASS_ACCUMULATION_RATE",
+      "system": "SI_DERIVED",
+      "supportsPrefixes": false,
+      "names": [
+        {
+          "lemma": "mole per square meter per year",
+          "inflections": [
+            "moles per square meter per year"
+          ]
+        }
+      ]
+    },
+    {
+      "notations": [
+        {
           "raw": "µmol/cm2/ka",
           "product": [
             {
