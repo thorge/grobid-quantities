@@ -38,6 +38,7 @@
   <unit><base>mol</base> <base>m</base><pow>-2</pow> <base>yr</base><pow>-1</pow></unit>
   <unit><base>%</base></unit>
   <unit><base>%</base></unit>
+  <unit><base>‰</base></unit>
   <unit><base>pMC</base></unit>
   <unit><base>m</base></unit>
   <unit><base>m</base></unit>
@@ -67,14 +68,16 @@
   <unit><base>L</base></unit>
   <unit><base>m</base></unit>
   <unit><base>L</base></unit>
-  <unit><base>mol</base></unit>
-  <unit><base>mol</base></unit>
+  <unit><prefix>μ</prefix><base>mol</base></unit>
+  <unit><prefix>μ</prefix><base>mol</base></unit>
   <unit><base>pMC</base></unit>
   <unit><base>pMC</base></unit>
-  <unit><base>mol</base></unit>
+  <unit><prefix>μ</prefix><base>mol</base></unit>
   <unit><base>%</base></unit>
   <unit><base>%</base></unit>
   <unit><base>yr</base></unit>
+  <unit><base>‰</base></unit>
+  <unit><base>‰</base></unit>
   <unit><base>yr</base></unit>
   <unit><base>yr</base></unit>
   <unit><base>m</base></unit>
