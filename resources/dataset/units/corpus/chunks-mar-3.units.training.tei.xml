@@ -40,4 +40,17 @@
   <unit><base>years</base></unit>
   <unit><prefix>m</prefix><base>m</base><pow>/</pow><base>yr</base></unit>
   <unit><prefix>m</prefix><base>g</base>/<prefix>c</prefix><base>m</base><pow>2</pow><pow>/</pow><base>year</base></unit>
+  <unit><prefix>c</prefix><base>m</base></unit>
+  <unit><prefix>c</prefix><base>m</base></unit>
+  <unit><prefix>c</prefix><base>m</base></unit>
+  <unit><prefix>c</prefix><base>m</base></unit>
+  <unit><prefix>c</prefix><base>m</base> <base>yr</base><pow>-1</pow></unit>
+  <unit><prefix>c</prefix><base>m</base> <base>yr</base><pow>-1</pow></unit>
+  <unit><prefix>c</prefix><base>m</base> <base>yr</base><pow>-1</pow></unit>
+  <unit><prefix>c</prefix><base>m</base> <base>yr</base><pow>-1</pow></unit>
+  <unit><prefix>c</prefix><base>m</base></unit>
+  <unit><prefix>c</prefix><base>m</base></unit>
+  <unit><base>g</base> <prefix>c</prefix><base>m</base><pow>-3</pow></unit>
+  <unit><base>g</base> <prefix>c</prefix><base>m</base><pow>-3</pow></unit>
+  <unit><base>g</base> <prefix>c</prefix><base>m</base><pow>-3</pow></unit>
 </units>
